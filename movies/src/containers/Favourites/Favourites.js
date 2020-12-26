@@ -5,9 +5,13 @@ import Movie from "../../components/Movie";
 const Favourites = (props) => {
   return (
     <div className="Favourites">
-      {props.favourites.map((movie) => {
-        return <img src={movie.i.imageUrl} alt="Error loading" />;
-      })}
+      {props.favourites.length > 0 ? (
+        props.favourites.map((movie) => {
+          return <img src={movie.i.imageUrl} alt="Error loading" />;
+        })
+      ) : (
+        <p>Start adding favourites in the Search for a movie tab!</p>
+      )}
     </div>
   );
 };
