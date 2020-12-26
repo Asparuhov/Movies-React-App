@@ -33,14 +33,16 @@ const Movies = (props) => {
       });
   };
   let printMovies = null;
-  if (render) {
-    printMovies = movies.map((movie) => (
-      <Movie
-        source={movie.i.imageUrl}
-        key={movie.id}
-        add={() => props.addFavourite(movie)}
-      />
-    ));
+  if (render && movies) {
+    printMovies = movies.map((movie) =>
+      movie.i ? (
+        <Movie
+          source={movie.i.imageUrl}
+          key={movie.id}
+          add={() => props.addFavourite(movie)}
+        />
+      ) : null
+    );
   }
   return (
     <>
