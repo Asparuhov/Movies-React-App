@@ -7,6 +7,7 @@ const Movies = (props) => {
   let [search, setSearch] = useState("");
   let [movies, setMovies] = useState({});
   let [render, setRender] = useState(false);
+  let [oldSearch, setOldSearch] = useState(null);
   const options = {
     method: "GET",
     url: "https://imdb8.p.rapidapi.com/title/auto-complete",
@@ -27,6 +28,7 @@ const Movies = (props) => {
         setMovies(response.data.d);
         console.log(movies);
         setRender(true);
+        setOldSearch(search);
       })
       .catch(function (error) {
         console.error(error);
@@ -43,6 +45,9 @@ const Movies = (props) => {
         />
       ) : null
     );
+    
+  }else if (!movies) {
+    printMovies = <p style={{fontWeight: 'bolder'}}>No results found with input "{oldSearch}"</p>
   }
   return (
     <>
