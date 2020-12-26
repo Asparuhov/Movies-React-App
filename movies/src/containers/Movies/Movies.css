@@ -61,3 +61,12 @@
   width: 120px;
   font-size: 22px;
 }
+
+.Movies {
+  display: inline-flex;
+    zoom: 1; 
+    *display: inline;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}

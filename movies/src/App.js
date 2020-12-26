@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import Movies from "./containers/Movies/Movies";
+import logo from './assets/logo.png'
 import { Route, Link } from "react-router-dom";
 function App() {
   return (
@@ -8,7 +9,7 @@ function App() {
       <div class="header header-fixed">
         <div class="navbar container">
           <div class="logo">
-            <Link to="/">LOGO</Link>
+            <Link to="/"><img width='30px' height='30px' src={logo} alt='error'/></Link>
           </div>
           <input type="checkbox" id="navbar-toggle" />
           <label for="navbar-toggle">
