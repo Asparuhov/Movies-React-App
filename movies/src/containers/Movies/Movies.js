@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./Movies.css";
 import Movie from "../../components/Movie";
-export default function Movies() {
+import { connect } from "react-redux";
+const Movies = (props) => {
   let [search, setSearch] = useState("");
   let [movies, setMovies] = useState({});
   let [render, setRender] = useState(false);
@@ -34,7 +35,11 @@ export default function Movies() {
   let printMovies = null;
   if (render) {
     printMovies = movies.map((movie) => (
-      <Movie source={movie.i.imageUrl} key={movie.id} />
+      <Movie
+        source={movie.i.imageUrl}
+        key={movie.id}
+        add={() => props.addFavourite(movie)}
+      />
     ));
   }
   return (
@@ -46,4 +51,16 @@ export default function Movies() {
       <div className="Movies">{printMovies}</div>
     </>
   );
-}
+};
+
+const mapStateToProps = (state) => {
+  return {
+    favourites: state.favourites,
+  };
+};
+const toActions = (dispatch) => {
+  return {
+    addFavourite: (movie) => dispatch({ type: "ADDTOFAVOURITE", movie: movie }),
+  };
+};
+export default connect(mapStateToProps, toActions)(Movies);

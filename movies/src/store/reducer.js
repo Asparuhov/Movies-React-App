@@ -1,8 +1,15 @@
 const initialState = {
-    movies:[]
-}
+  favourites: [],
+};
 const reducer = (state = initialState, action) => {
-    return state;
-}
+  switch (action.type) {
+    case "ADDTOFAVOURITE":
+      return {
+        favourites: state.favourites.concat(action.movie),
+      };
+    default:
+      return state;
+  }
+};
 
 export default reducer;

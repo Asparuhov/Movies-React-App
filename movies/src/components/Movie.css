@@ -15,6 +15,8 @@
     flex-wrap: nowrap;
     padding: 0;
     transition: transform .2s;
+    position: relative;
+    
 }
 
 .Item img{
@@ -22,6 +24,44 @@
     height: 450px;
 }
 
-.Item:hover{
-    transform: scale(1.3);
+.Item span {
+    content: "\2764";
 }
+
+.Item:hover {
+    transform: scale(1.3);
+}  
+.Item:hover .heart {
+    display: inline-block;
+}  
+  .heart {
+    display:none;
+    background-color: red;
+    height: 30px;
+    margin: 0 10px;
+    position: relative;
+    top: 150;
+    transform: rotate(-45deg);
+    width: 30px;
+    position: absolute;
+  }
+  
+  .heart:before,
+  .heart:after {
+    content: "";
+    background-color: red;
+    border-radius: 50%;
+    height: 30px;
+    position: absolute;
+    width: 30px;
+  }
+  
+  .heart:before {
+    top: -15px;
+    left: 0;
+  }
+  
+  .heart:after {
+    left: 15px;
+    top: 0;
+  }

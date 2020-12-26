@@ -2,7 +2,10 @@ import React from 'react'
 import './Movie.css'
 const Movie = props => {
     return (
-            <img src={props.source} alt='Error loading' className='Item'/>
+        <div className='Item'>
+            <img src={props.source} alt='Error loading' />
+            <span class="heart" onClick={props.add}></span>
+        </div>
     )
 }
 

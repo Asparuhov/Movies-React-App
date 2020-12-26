@@ -38,12 +38,13 @@ body {
   box-sizing: border-box;
 }
 
-.navbar .logo a {
+.navbar .logo a img{
     display: block;
     font-size: 30px;
     font-weight: bold;
     color: #fff;
     text-decoration: none;
+    margin-left: 3px;
 }
 .navbar .logo a:hover {
   color: #777777;

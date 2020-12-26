@@ -1,0 +1,15 @@
+.Favourites {
+  zoom: 1;
+  *display: inline;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+}
+.Favourites img {
+  width: 320px;
+  height: 450px;
+}
+.Favourites img:hover {
+  transform: scale(1.3);
+}
