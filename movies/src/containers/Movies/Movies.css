@@ -1,0 +1,63 @@
+.search {
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+}
+.search input {
+  height: 40px;
+  width: 600px;
+  border: 1px solid black;
+  font-size: 20px;
+  font-weight: bold;
+  background: #fff;
+  color: #525865;
+
+  border: 1px solid #d1d1d1;
+  box-shadow: inset 1px 2px 8px rgba(0, 0, 0, 0.07);
+  font-family: inherit;
+  font-size: 1em;
+  outline: none;
+  -webkit-transition: 0.18s ease-out;
+  -moz-transition: 0.18s ease-out;
+  -o-transition: 0.18s ease-out;
+  transition: 0.18s ease-out;
+}
+
+.search button {
+  display: block;
+  width: 100px;
+  height: 46px;
+  margin-left:5px;
+  font-size: 18px;
+  font-family: sans-serif;
+  text-decoration: none;
+  color: black;
+  font-weight: bolder;
+  border: 2px solid #333;
+  letter-spacing: 2px;
+  text-align: center;
+  position: relative;
+  transition: all 0.35s;
+  margin-bottom:1px;
+  background-color: rgba(31, 28, 28, 0.5);
+  border: 1px solid;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5),
+    0 0 20px rgba(255, 255, 255, 0.2);
+  outline-color: rgba(255, 255, 255, 0);
+  text-shadow: 1px 1px 2px #427388;
+  background-color: black;
+  color: white;
+  cursor:pointer;
+}
+
+.search button:hover {
+  border: 1px solid;
+  box-shadow: inset 0 0 20px 0 0 20px rgba(255, 255, 255, 0.2);
+  outline-color: rgba(255, 255, 255, 0);
+  outline-offset: 15px;
+  text-shadow: 1px 1px 2px #427388;
+  background-color: rgb(23, 24, 23);
+  color: white;
+  width: 120px;
+  font-size: 22px;
+}
