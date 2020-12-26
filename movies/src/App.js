@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import Movies from "./containers/Movies/Movies";
-import logo from './assets/logo.png'
+import logo from "./assets/logo.png";
 import { Route, Link } from "react-router-dom";
 import Favourites from "./containers/Favourites/Favourites";
 function App() {
@@ -10,7 +10,9 @@ function App() {
       <div class="header header-fixed">
         <div class="navbar container">
           <div class="logo">
-            <Link to="/"><img width='50px' height='50px' src={logo} alt='error'/></Link>
+            <Link to="/">
+              <img width="50px" height="50px" src={logo} alt="error" />
+            </Link>
           </div>
           <input type="checkbox" id="navbar-toggle" />
           <label for="navbar-toggle">
@@ -28,7 +30,7 @@ function App() {
           </nav>
         </div>
       </div>
-      <div  class='page'>
+      <div class="page">
         <Route path="/" exact component={Movies} />
         <Route path="/favourites" exact component={Favourites} />
       </div>

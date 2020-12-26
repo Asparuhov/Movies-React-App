@@ -1,10 +1,10 @@
 .Favourites {
   display: inline-flex;
-    zoom: 1; 
-    *display: inline;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+  zoom: 1;
+  *display: inline;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 .Favourites img {
   display: inline-flex;

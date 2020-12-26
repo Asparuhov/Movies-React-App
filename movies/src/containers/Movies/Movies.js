@@ -45,9 +45,12 @@ const Movies = (props) => {
         />
       ) : null
     );
-    
-  }else if (!movies) {
-    printMovies = <p style={{fontWeight: 'bolder'}}>No results found with input "{oldSearch}"</p>
+  } else if (!movies) {
+    printMovies = (
+      <p style={{ fontWeight: "bolder" }}>
+        No results found with input "{oldSearch}"
+      </p>
+    );
   }
   return (
     <>
