@@ -1,0 +1,27 @@
+.Item{
+    display:inline-flex;
+    flex-direction: column;
+    border: 1px solid black;
+    align-items: center;
+    border-radius: 3px;
+    width: 280px;
+    height:400px;
+    background-color: white;
+    margin: 20px;
+    justify-content: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex-wrap: nowrap;
+    padding: 0;
+    transition: transform .2s;
+}
+
+.Item img{
+    width: 320px;
+    height: 450px;
+}
+
+.Item:hover{
+    transform: scale(1.3);
+}
