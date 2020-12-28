@@ -17,11 +17,9 @@ const Movies = (props) => {
       "x-rapidapi-host": "imdb8.p.rapidapi.com",
     },
   };
- //search query
   const onSearch = (event) => {
     setSearch(event.target.value);
   };
-  //requesting api
   const retrieveData = () => {
     axios
       .request(options)
