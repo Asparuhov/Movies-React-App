@@ -21,6 +21,7 @@ const Movies = (props) => {
   const onSearch = (event) => {
     setSearch(event.target.value);
   };
+  //requesting api
   const retrieveData = () => {
     axios
       .request(options)
