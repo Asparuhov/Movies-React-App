@@ -14,7 +14,6 @@ const Favourites = (props) => {
     </div>
   );
 };
-
 const mapStateToProps = (state) => {
   return {
     favourites: state.favourites,
