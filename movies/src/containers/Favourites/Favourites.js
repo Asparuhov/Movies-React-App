@@ -10,7 +10,7 @@ const Favourites = (props) => {
           return <img src={movie.i.imageUrl} alt="Error loading" />;
         })
       ) : (
-        <p>Start adding favourites in the Search for a movie tab!</p>
+        <p>Start adding movies to your favourites in the search tab!</p>
       )}
     </div>
   );
