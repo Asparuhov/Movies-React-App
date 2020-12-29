@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import "./Favourites.css";
-import Movie from "../../components/Movie";
 const Favourites = (props) => {
   return (
     <div className="Favourites">
