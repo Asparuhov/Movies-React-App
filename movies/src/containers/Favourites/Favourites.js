@@ -6,7 +6,12 @@ const Favourites = (props) => {
     <div className="Favourites">
       {props.favourites.length > 0 ? (
         props.favourites.map((movie) => {
-          return <img src={movie.i.imageUrl} alt="Error loading" />;
+          return (
+            <div>
+              <img src={movie.i.imageUrl} alt="Error loading" />
+              <span className='sidebox' onClick={props.add}>X</span>
+            </div>
+          );
         })
       ) : (
         <p>Start adding movies to your favourites in the search tab!</p>
