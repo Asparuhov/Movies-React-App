@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./Movies.css";
 import Movie from "../../components/Movie";
@@ -7,27 +7,43 @@ const Movies = (props) => {
   let [search, setSearch] = useState("");
   let [movies, setMovies] = useState({});
   let [render, setRender] = useState(false);
+  let [popularMovies, setPopularMovies] = useState(false);
+  let [renderPopular, setRenderPopular] = useState(false);
   let [oldSearch, setOldSearch] = useState(null);
-  const options = {
+  const popular = {
     method: "GET",
-    url: "https://imdb8.p.rapidapi.com/title/auto-complete",
-    params: { q: search },
+    url: "https://imdb8.p.rapidapi.com/title/get-most-popular-movies",
+    params: { homeCountry: "US", purchaseCountry: "US", currentCountry: "US" },
     headers: {
       "x-rapidapi-key": "6ddacadffemsh3f7c41a84ac428dp104bf5jsnc0be7264a640",
       "x-rapidapi-host": "imdb8.p.rapidapi.com",
     },
   };
+
+  useEffect(() => {
+    axios
+      .request(popular)
+      .then(function (response) {
+        const arr = response.data.slice(0, 20);
+        setPopularMovies(arr);
+        setRenderPopular(true);
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+  }, []);
   const onSearch = (event) => {
     setSearch(event.target.value);
   };
   const retrieveData = () => {
     axios
-      .request(options)
+      .request(Search)
       .then(function (response) {
         console.log(response.data);
         setMovies(response.data.d);
         console.log(movies);
         setRender(true);
+        setRenderPopular(false);
         setOldSearch(search);
       })
       .catch(function (error) {
@@ -45,7 +61,35 @@ const Movies = (props) => {
         />
       ) : null
     );
-  } else if (!movies) {
+  }
+  let param;
+  if (renderPopular) {
+    param = popularMovies.map((movie) => {
+      let [_, _1, title] = movie.split("/");
+      return title;
+    });
+    const options = {
+      method: "GET",
+      url: "https://imdb8.p.rapidapi.com/title/auto-complete",
+      params: { q: param },
+      headers: {
+        "x-rapidapi-key":
+          "6ddacadffemsh3f7c41a84ac428dp104bf5jsnc0be7264a640",
+        "x-rapidapi-host": "imdb8.p.rapidapi.com",
+      },
+    };
+    axios
+      .request(options)
+      .then(function (response) {
+        console.log(response.data);
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+    console.log(param);
+  }
+
+  if (!movies) {
     printMovies = (
       <p style={{ fontWeight: "bolder" }}>
         No results found with input "{oldSearch}"
