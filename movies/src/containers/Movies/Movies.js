@@ -11,8 +11,8 @@ const Movies = (props) => {
   let [oldSearch, setOldSearch] = useState(null);
   const options = {
     method: "GET",
-    url: "https://imdb8.p.rapidapi.com/title/get-most-popular-movies",
-    params: { homeCountry: "US", purchaseCountry: "US", currentCountry: "US" },
+    url: "https://imdb8.p.rapidapi.com/title/auto-complete",
+    params: { q: search },
     headers: {
       "x-rapidapi-key": "6ddacadffemsh3f7c41a84ac428dp104bf5jsnc0be7264a640",
       "x-rapidapi-host": "imdb8.p.rapidapi.com",
@@ -48,11 +48,14 @@ const Movies = (props) => {
       ) : null
     );
   }
- 
+
   return (
     <>
       <div class="search">
-        <input onChange={onSearch} placeholder="ex. Home alone" />
+        <input
+          onChange={(e) => setSearch(e.target.value)}
+          placeholder="ex. Home alone"
+        />
         <button onClick={retrieveData}>Search</button>
       </div>
       <div className="Movies">{printMovies}</div>
